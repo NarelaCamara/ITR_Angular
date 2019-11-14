@@ -14,18 +14,18 @@ import { MascotasService } from '../shared/mascotas.service';
 //La clase que usa este componete
 export class MascotasAgregarComponent implements OnInit {
 
-///El coso (Variable) que poseee los darrtos que un usuario cargoen el formulario
+///El coso (Variable) que poseee los darrtos que un usuario cargo en el formulario
 public mascotaForm = this.fb.group({
     nombre: ['', Validators.required],
     tipo: ['',Validators.required],
-    edad: ['',  [Validators.required, Validators.pattern('[0-9]+')] ] ,
+    edad: ['', [Validators.required, Validators.pattern('[0-9]+')] ] ,
     descripcion: ['', Validators.required]   
   });
 
 //Constructor
   constructor(private fb: FormBuilder, private ms: MascotasService) { }
 
-
+  
   ngOnInit() {  }
 
 
@@ -33,5 +33,11 @@ public mascotaForm = this.fb.group({
   updatePet() {
   this.ms.addMascota( this.mascotaForm.value);
   }
+
+limpiar(){
+  this.mascotaForm.reset();
+}
+
+
 
 }
