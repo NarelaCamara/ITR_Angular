@@ -20,9 +20,17 @@
             <td class="left">{{mascota.edad}}</td>
             <td class="left">{{mascota.descripcion}}</td>
             <td class="left">
-                <button  [routerLink]="['/mascotas-editar', mascota.id]"  class="btn btn-primary-outline">
+
+                <button [routerLink]="['/mascotas-editar', mascota.id]" type="button" class="btn btn-icon"
+                    aria-label="home">
                     <clr-icon shape="pencil"></clr-icon>
-                </button></td>
+                </button>
+
+                <button type="button" (click)="borrarMascota(mascota.id)" class="btn btn-icon btn-warning" aria-label="warning">
+                    <clr-icon shape="trash"></clr-icon>
+                </button>
+
+            </td>
         </tr>
     </tbody>
 </table>
