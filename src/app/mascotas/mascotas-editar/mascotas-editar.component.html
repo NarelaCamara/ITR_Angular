@@ -1,0 +1,39 @@
+<h1>Editar Mascota</h1>
+
+<form clrForm [formGroup]="mascotaForm" (ngSubmit)="editarMascota();">
+
+  <clr-input-container>
+    <label>Nombre</label>
+    <input clrInput type="text" formControlName="nombre" />
+    <clr-control-helper>Mirá ameo esto es muy claro, es obligatorio que tenga nombre</clr-control-helper>
+    <clr-control-error>Error pongale nombre conchetumadre</clr-control-error>
+  </clr-input-container>
+
+
+  <clr-input-container>
+    <label>Tipo</label>
+    <input clrInput type="text" formControlName="tipo" />
+    <clr-control-helper>Ayura, si no sabes el tipo pos googlealo</clr-control-helper>
+    <clr-control-error>Error, ya se acabo la imaginacion</clr-control-error>
+  </clr-input-container>
+
+
+  <clr-input-container>
+    <label>Edad</label>
+    <input clrInput type="number" formControlName="edad" />
+    <clr-control-helper>Helper text that shows while it is pristine and valid</clr-control-helper>
+    <clr-control-error>Error message that appears after focus is lost and control is invalid</clr-control-error>
+  </clr-input-container>
+
+
+  <clr-input-container>
+    <label>Descripcion</label>
+    <input clrInput type="text" formControlName="descripcion" />
+    <clr-control-helper>Helper text that shows while it is pristine and valid</clr-control-helper>
+    <clr-control-error>Error message that appears after focus is lost and control is invalid</clr-control-error>
+  </clr-input-container>
+
+  <button class="btn btn-success">Actualizar</button>
+
+  <button class="btn btn-outline" routerLink="/mascotas-listar" routerLinkActive="active">Cancelar</button>
+</form>

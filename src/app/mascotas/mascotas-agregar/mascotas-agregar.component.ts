@@ -1,7 +1,8 @@
 //Los imports/ herramientas que utiliza
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MascotasService } from '../shared/mascotas.service';
+
 
 
 //Como esta compuesto...supongo
@@ -12,31 +13,32 @@ import { MascotasService } from '../shared/mascotas.service';
 })
 
 //La clase que usa este componete
-export class MascotasAgregarComponent implements OnInit {
+export class MascotasAgregarComponent  {
 
-///El coso (Variable) que poseee los darrtos que un usuario cargo en el formulario
-public mascotaForm = this.fb.group({
+  ngOnInit(){}
+
+  ///El coso (Variable) que poseee los darrtos que un usuario cargo en el formulario
+  public mascotaForm = this.fb.group({
     nombre: ['', Validators.required],
-    tipo: ['',Validators.required],
-    edad: ['', [Validators.required, Validators.pattern('[0-9]+')] ] ,
-    descripcion: ['', Validators.required]   
+    tipo: ['', Validators.required],
+    edad: ['', [Validators.required, Validators.pattern('[0-9]+')]],
+    descripcion: ['', Validators.required]
   });
-
-//Constructor
-  constructor(private fb: FormBuilder, private ms: MascotasService) { }
-
   
-  ngOnInit() {  }
+  //Constructor
+  constructor(  private fb: FormBuilder, private ms: MascotasService) { }
 
 
-//Metod para que los valores del formulario anterior se cargen dentro del 'JSON' de mascotas que enrootie antes
+  //Metod para que los valores del formulario anterior se cargen dentro del 'JSON' de mascotas que enrootie antes
   updatePet() {
-  this.ms.addMascota( this.mascotaForm.value);
+    this.ms.addMascota(this.mascotaForm.value);
   }
 
-limpiar(){
-  this.mascotaForm.reset();
-}
+  limpiar() {
+    this.mascotaForm.reset();
+  }
+
+ 
 
 
 
