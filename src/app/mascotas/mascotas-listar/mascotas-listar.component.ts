@@ -35,10 +35,9 @@ export class MascotasListarComponent {
 
   borrarMascota(id: number) {
     this.mascotasService.deleteMascota(id).subscribe(data => {
-      this.mascotasService.getMascotas( ).subscribe( listaActual => this.mascotas = listaActual );
+      this.mascotasService.getMascotas().subscribe(listaActual => this.mascotas = listaActual);
     })
   }
-
 
 
 }
